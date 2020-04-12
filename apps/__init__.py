@@ -10,7 +10,7 @@ from flask_cors import CORS
 from apps.messages import Messages
 
 # Local
-
+from .db import db
 from .api import configure_api
 from .cache import configure_cache
 
@@ -46,6 +46,8 @@ def create_app(config_name):
 
     # Configure Cache
     configure_cache(app)
+
+    db.init_app(app)
 
     # executa a chamada da função de configuração
     configure_api(app)

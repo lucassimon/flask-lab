@@ -1,9 +1,10 @@
-image: "python:3.6"
+image: "python:3.6-alpine"
 
 
 before_script:
   - python --version
-  - pip install -r requirements/dev.txt
+  - pip install --user poetry
+  - poetry install
 
 stages:
   - static
@@ -24,13 +25,13 @@ pytest:
 deploy_staging:
   stage: deploy
   script:
-    - echo "ready"
+    - echo "improve your scripts here"
   only:
     - master
 
 deploy_production:
   stage: deploy
   script:
-    - echo "ready"
+    - echo "improve your scripts here"
   only:
     - tags
